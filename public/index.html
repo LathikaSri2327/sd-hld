@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recruitment Platform</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" onclick="showPage('home');return false;">HireHub</a>
+    <nav id="nav"></nav>
+  </header>
+  <main class="container">
+    <div id="message" class="message hidden"></div>
+    <section id="home" class="page">
+      <div class="hero">
+        <p class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</p>
+        <h1>Find work that<br><span>moves you forward.</span></h1>
+        <p>Search opportunities, apply in a few clicks, and track every application.</p>
+        <div class="hero-actions">
+          <button onclick="showPage('jobs')">Explore jobs</button>
+          <button class="secondary" onclick="showPage('auth')">Sign in / Register</button>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><strong>01</strong><h3>Discover jobs</h3><p>Search by title, company or location.</p></article>
+        <article class="feature"><strong>02</strong><h3>Apply easily</h3><p>Submit applications and upload your resume.</p></article>
+        <article class="feature"><strong>03</strong><h3>Track progress</h3><p>See status updates and notifications.</p></article>
+      </div>
+    </section>
+
+    <section id="auth" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">WELCOME TO HIREHUB</p><h2>Account access</h2></div>
+      <div class="two-col">
+        <form id="loginForm" class="panel">
+          <h3>Login</h3>
+          <label>Email<input name="email" type="email" required></label>
+          <label>Password<input name="password" type="password" required></label>
+          <button type="submit">Login</button>
+        </form>
+        <form id="registerForm" class="panel">
+          <h3>Create account</h3>
+          <label>Full name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+          <label>Password (minimum 8 characters)<input name="password" type="password" minlength="8" required></label>
+          <label>Account type<select name="role"><option value="JOB_SEEKER">Job Seeker</option><option value="RECRUITER">Recruiter</option></select></label>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="jobs" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">OPPORTUNITIES</p><h2>Explore jobs</h2><p>Search by job title, company or location.</p></div>
+      <form id="searchForm" class="search-row"><input name="q" placeholder="e.g. Software Engineer, Chennai"><button>Search</button></form>
+      <div id="jobList" class="job-grid"></div>
+    </section>
+
+    <section id="postJob" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">RECRUITER WORKSPACE</p><h2>Post a job</h2></div>
+      <form id="jobForm" class="panel form-wide">
+        <label>Job title<input name="title" required></label>
+        <label>Company name<input name="company" required></label>
+        <label>Location<input name="location" required></label>
+        <label>Required skills<input name="skills" placeholder="JavaScript, SQL, communication"></label>
+        <label>Description<textarea name="description" rows="5" required></textarea></label>
+        <button>Publish job</button>
+      </form>
+      <h3 class="subheading">Your job applicants</h3><div id="recruiterJobs"></div>
+    </section>
+
+    <section id="applications" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">JOB SEEKER WORKSPACE</p><h2>My applications</h2></div>
+      <div id="applicationList"></div>
+      <div class="two-col upload-layout">
+        <form id="resumeForm" class="panel"><h3>Upload resume (PDF, max 5 MB)</h3><input type="file" name="resume" accept="application/pdf,.pdf" required><button>Upload resume</button></form>
+        <div class="panel"><h3>My resumes</h3><div id="resumeList"></div></div>
+      </div>
+    </section>
+
+    <section id="notifications" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">UPDATES</p><h2>Notifications</h2></div>
+      <div id="notificationList"></div>
+    </section>
+
+    <section id="dashboard" class="page hidden">
+      <div class="section-heading"><p class="eyebrow">YOUR WORKSPACE</p><h2 id="dashboardTitle">Dashboard</h2><p id="dashboardText"></p></div>
+      <div class="feature-grid">
+        <article class="feature"><strong>JOBS</strong><h3>Explore opportunities</h3><button onclick="showPage('jobs')">Browse jobs</button></article>
+        <article class="feature" id="dashApply"><strong>APPLICATIONS</strong><h3>Track your progress</h3><button onclick="showPage('applications')">My applications</button></article>
+        <article class="feature" id="dashPost"><strong>RECRUIT</strong><h3>Find candidates</h3><button onclick="showPage('postJob')">Manage jobs</button></article>
+      </div>
+    </section>
+  </main>
+  <footer>HireHub · Recruitment Platform · College HLD Practical</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
